@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-  />
+  >
 
   <title>Sarkar Bhai (2015) | Cricket & Football Community</title>
 
-  <!-- Premium bold / cinematic fonts -->
+  <!-- PREMIUM CINEMATIC FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@500;600;700;800;900&display=swap"
     rel="stylesheet"
-  />
+  >
 
   <style>
+
+    /* =========================
+       RESET
+    ========================= */
+
     * {
       margin: 0;
       padding: 0;
@@ -32,524 +39,888 @@
     }
 
     body {
-      background:
-        radial-gradient(circle at 50% 25%, rgba(0, 115, 255, 0.15), transparent 32%),
-        radial-gradient(circle at 50% 100%, rgba(255, 80, 0, 0.08), transparent 35%),
-        #050608;
-
-      color: #fff;
+      background: #05080c;
+      color: #ffffff;
       font-family: "Inter", sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ---------- BACKGROUND ---------- */
+
+    /* =========================
+       MAIN SCREEN
+    ========================= */
 
     .page {
       width: 100%;
       height: 100dvh;
       min-height: 560px;
+
       position: relative;
       overflow: hidden;
+
       display: flex;
-      justify-content: center;
       align-items: center;
-      padding: 14px;
+      justify-content: center;
+
+      padding: 12px;
     }
 
-    .grid {
+
+    /* =========================
+       PREMIUM BACKGROUND
+    ========================= */
+
+    .background-grid {
       position: absolute;
       inset: 0;
+
       background-image:
-        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
-      background-size: 45px 45px;
-      mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
-      pointer-events: none;
+        linear-gradient(
+          rgba(100, 170, 220, 0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(100, 170, 220, 0.025) 1px,
+          transparent 1px
+        );
+
+      background-size: 42px 42px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          transparent,
+          black 18%,
+          black 82%,
+          transparent
+        );
     }
 
-    .orb {
+
+    .blue-glow {
       position: absolute;
-      width: 280px;
-      height: 280px;
+
+      width: 330px;
+      height: 330px;
+
+      top: -150px;
+      left: -140px;
+
       border-radius: 50%;
-      background: rgba(0, 119, 255, 0.09);
-      filter: blur(65px);
-      animation: orbMove 7s ease-in-out infinite alternate;
+
+      background: rgba(45, 150, 255, 0.12);
+
+      filter: blur(70px);
+
+      animation: floatingBlue 7s ease-in-out infinite alternate;
     }
 
-    .orb.one {
-      top: -100px;
-      left: -100px;
+
+    .green-glow {
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      bottom: -150px;
+      right: -120px;
+
+      border-radius: 50%;
+
+      background: rgba(0, 255, 150, 0.075);
+
+      filter: blur(75px);
+
+      animation: floatingGreen 8s ease-in-out infinite alternate;
     }
 
-    .orb.two {
-      bottom: -120px;
+
+    .red-glow {
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      top: 40%;
       right: -100px;
-      background: rgba(255, 65, 0, 0.08);
-      animation-delay: 2s;
+
+      border-radius: 50%;
+
+      background: rgba(255, 65, 55, 0.055);
+
+      filter: blur(65px);
     }
 
-    @keyframes orbMove {
+
+    @keyframes floatingBlue {
       from {
         transform: translate(0, 0) scale(1);
       }
+
       to {
         transform: translate(35px, 25px) scale(1.12);
       }
     }
 
-    /* ---------- MAIN CARD ---------- */
+
+    @keyframes floatingGreen {
+      from {
+        transform: translate(0, 0) scale(1);
+      }
+
+      to {
+        transform: translate(-25px, -20px) scale(1.1);
+      }
+    }
+
+
+    /* =========================
+       CONTENT
+    ========================= */
 
     .container {
+      position: relative;
+      z-index: 5;
+
       width: 100%;
       max-width: 440px;
+
       height: 100%;
-      max-height: 820px;
-      position: relative;
-      z-index: 2;
+      max-height: 830px;
+
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 12px 4px;
+
+      padding: 10px 4px;
     }
 
-    /* ---------- TOP ---------- */
+
+    /* =========================
+       TOP BRAND
+    ========================= */
 
     .top {
       text-align: center;
-      animation: fadeDown .7s ease both;
+
+      animation: fadeTop .7s ease both;
     }
 
-    .brand {
+
+    .brand-pill {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
+
       gap: 9px;
-      padding: 7px 14px;
-      border: 1px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.035);
+
+      padding: 8px 15px;
+
       border-radius: 999px;
+
+      border: 1px solid rgba(115, 190, 255, 0.18);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(100, 180, 255, 0.08),
+          rgba(255,255,255,0.025)
+        );
+
+      box-shadow:
+        0 8px 30px rgba(0,0,0,.3),
+        inset 0 1px rgba(255,255,255,.06);
+
       backdrop-filter: blur(14px);
-      box-shadow: 0 8px 30px rgba(0,0,0,.25);
     }
 
-    .live-dot {
-      width: 7px;
-      height: 7px;
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+
       border-radius: 50%;
-      background: #31ff77;
-      box-shadow: 0 0 12px rgba(49,255,119,.9);
-      animation: pulse 1.2s infinite;
+
+      background: #37ff91;
+
+      box-shadow:
+        0 0 7px #37ff91,
+        0 0 15px rgba(55,255,145,.6);
+
+      animation: statusPulse 1.4s infinite;
     }
 
-    .brand span {
+
+    .brand-pill span {
       font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 2px;
+
+      font-weight: 900;
+
+      letter-spacing: 1.8px;
+
+      color: #dcecff;
+
       text-transform: uppercase;
-      color: rgba(255,255,255,.82);
     }
 
-    @keyframes pulse {
-      0%, 100% {
+
+    @keyframes statusPulse {
+
+      0%,100% {
         opacity: 1;
         transform: scale(1);
       }
+
       50% {
         opacity: .35;
-        transform: scale(.7);
+        transform: scale(.72);
       }
+
     }
 
-    /* ---------- LOGO ---------- */
+
+    /* =========================
+       LOGO + FLAME
+    ========================= */
 
     .logo-area {
+      width: 145px;
+      height: 145px;
+
+      margin: 2px auto 0;
+
       position: relative;
-      width: 150px;
-      height: 150px;
-      margin: 5px auto 0;
+
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
     }
+
+
+    /* Outer steel-blue halo */
 
     .logo-area::before {
       content: "";
+
       position: absolute;
-      width: 105px;
-      height: 105px;
+
+      width: 118px;
+      height: 118px;
+
       border-radius: 50%;
-      background: radial-gradient(
-        circle,
-        rgba(255, 104, 20, .55),
-        rgba(255, 58, 0, .16) 42%,
-        transparent 70%
-      );
-      filter: blur(14px);
-      animation: flameGlow 1.7s ease-in-out infinite alternate;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(60, 180, 255, .22),
+          rgba(40,120,220,.06) 48%,
+          transparent 72%
+        );
+
+      filter: blur(12px);
+
+      animation: logoHalo 2.2s ease-in-out infinite alternate;
     }
 
-    /* Flame-like glow behind logo */
+
+    /* Orange-red flame behind logo */
+
     .flame {
       position: absolute;
-      width: 76px;
-      height: 90px;
-      top: 19px;
-      left: 37px;
-      background: linear-gradient(
-        160deg,
-        transparent 20%,
-        rgba(255, 140, 45, .18) 35%,
-        rgba(255, 60, 10, .5) 58%,
-        transparent 75%
-      );
-      filter: blur(13px);
+
+      width: 78px;
+      height: 92px;
+
+      top: 17px;
+      left: 34px;
+
+      background:
+        linear-gradient(
+          160deg,
+          transparent 18%,
+          rgba(255, 95, 45, .16) 35%,
+          rgba(255, 60, 30, .62) 60%,
+          transparent 78%
+        );
+
+      filter: blur(12px);
+
       clip-path: polygon(
         50% 0%,
-        65% 24%,
-        94% 39%,
-        70% 54%,
+        66% 23%,
+        95% 39%,
+        70% 55%,
         82% 78%,
         50% 100%,
         28% 78%,
-        34% 53%,
+        34% 55%,
         5% 42%,
         36% 23%
       );
-      animation: flame 1.3s ease-in-out infinite alternate;
+
+      animation: flameMove 1.5s ease-in-out infinite alternate;
     }
 
-    @keyframes flame {
+
+    @keyframes flameMove {
+
       from {
-        transform: scale(.92) rotate(-3deg);
-        opacity: .65;
+        transform: scale(.9) rotate(-3deg);
+        opacity: .55;
       }
+
       to {
         transform: scale(1.08) rotate(3deg);
-        opacity: 1;
+        opacity: .95;
       }
+
     }
 
-    @keyframes flameGlow {
+
+    @keyframes logoHalo {
+
       from {
         transform: scale(.92);
         opacity: .65;
       }
+
       to {
-        transform: scale(1.1);
+        transform: scale(1.08);
         opacity: 1;
       }
+
     }
+
 
     .logo {
-      width: 108px;
-      height: 108px;
-      object-fit: contain;
       position: relative;
-      z-index: 2;
+      z-index: 4;
+
+      width: 105px;
+      height: 105px;
+
+      object-fit: contain;
+
       border-radius: 50%;
-      filter: drop-shadow(0 0 18px rgba(255, 87, 25, .25));
+
+      filter:
+        drop-shadow(0 0 14px rgba(75,175,255,.35))
+        drop-shadow(0 0 10px rgba(255,70,30,.15));
     }
 
-    /* ---------- TITLE ---------- */
 
-    .title {
-      margin-top: -3px;
-    }
+    /* =========================
+       MAIN TITLE
+    ========================= */
 
     .title h1 {
       font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(42px, 13vw, 62px);
-      line-height: .86;
-      letter-spacing: 1.5px;
+
+      font-size: clamp(45px, 13vw, 64px);
+
+      line-height: .88;
+
+      letter-spacing: 2px;
+
       text-transform: uppercase;
-      background: linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #d9e5f5 48%,
-        #7f8ca1 100%
-      );
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #dcecff 45%,
+          #8295a9 100%
+        );
+
       -webkit-background-clip: text;
       background-clip: text;
+
       color: transparent;
-      text-shadow: 0 12px 35px rgba(0,0,0,.4);
+
+      text-shadow:
+        0 10px 35px rgba(0,0,0,.45);
     }
 
-    .title h1 em {
-      font-style: normal;
-      background: linear-gradient(90deg, #ff7138, #ffb06d);
+
+    .title h1 .accent {
+      background:
+        linear-gradient(
+          90deg,
+          #52c8ff,
+          #8be4ff
+        );
+
       -webkit-background-clip: text;
       background-clip: text;
+
       color: transparent;
     }
+
 
     .subtitle {
       margin-top: 7px;
-      color: rgba(255,255,255,.58);
+
       font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1.8px;
+
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      color: #a9bfd3;
+
       text-transform: uppercase;
     }
 
-    /* ---------- LIVE STRIP ---------- */
 
-    .live-strip {
+    /* =========================
+       LIVE BAR
+    ========================= */
+
+    .live-bar {
+      width: 94%;
+
+      min-height: 37px;
+
       margin: 11px auto 0;
-      width: 92%;
-      min-height: 34px;
+
       display: flex;
-      justify-content: center;
       align-items: center;
-      gap: 9px;
+      justify-content: center;
+
+      gap: 8px;
+
       padding: 8px 12px;
-      border: 1px solid rgba(49,255,119,.14);
-      border-radius: 10px;
-      background: rgba(49,255,119,.035);
-      box-shadow: inset 0 0 22px rgba(49,255,119,.025);
+
+      border-radius: 11px;
+
+      border: 1px solid rgba(55,255,145,.13);
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(55,255,145,.045),
+          rgba(55,255,145,.015)
+        );
+
+      box-shadow:
+        inset 0 0 20px rgba(55,255,145,.025);
     }
 
-    .live-strip strong {
-      color: #55ff8d;
+
+    .live-text {
+      color: #48ff91;
+
       font-size: 10px;
-      letter-spacing: 1.2px;
+
+      font-weight: 900;
+
+      letter-spacing: 1.3px;
+
       text-transform: uppercase;
     }
 
-    .live-strip span {
-      color: rgba(255,255,255,.55);
+
+    .live-info {
+      color: rgba(255,255,255,.62);
+
       font-size: 10px;
+
+      font-weight: 600;
     }
 
-    /* ---------- HIGHLIGHTS ---------- */
+
+    /* =========================
+       HIGHLIGHT CARDS
+    ========================= */
 
     .highlights {
       display: grid;
+
       grid-template-columns: repeat(3, 1fr);
+
       gap: 7px;
+
       margin: 10px 0;
     }
 
-    .stat {
-      min-height: 70px;
-      padding: 10px 5px;
-      border-radius: 13px;
-      border: 1px solid rgba(255,255,255,.085);
+
+    .stat-card {
+      min-height: 75px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      border-radius: 14px;
+
+      border: 1px solid rgba(120,185,230,.12);
+
       background:
         linear-gradient(
           145deg,
-          rgba(255,255,255,.055),
+          rgba(100,180,255,.075),
           rgba(255,255,255,.018)
         );
-      backdrop-filter: blur(12px);
-      text-align: center;
+
+      box-shadow:
+        inset 0 1px rgba(255,255,255,.045),
+        0 8px 25px rgba(0,0,0,.18);
+
+      backdrop-filter: blur(13px);
+
       display: flex;
       flex-direction: column;
       justify-content: center;
-      position: relative;
-      overflow: hidden;
+      align-items: center;
+
+      text-align: center;
     }
 
-    .stat::after {
+
+    .stat-card::before {
       content: "";
+
       position: absolute;
-      width: 55px;
-      height: 55px;
-      right: -30px;
-      top: -30px;
+
+      width: 70px;
+      height: 70px;
+
+      right: -35px;
+      top: -35px;
+
       border-radius: 50%;
-      background: rgba(255,110,45,.13);
-      filter: blur(10px);
+
+      background: rgba(65,190,255,.14);
+
+      filter: blur(8px);
     }
+
 
     .stat-value {
+      position: relative;
+      z-index: 2;
+
       font-family: "Bebas Neue", sans-serif;
+
       font-size: 25px;
+
       line-height: 1;
+
       letter-spacing: 1px;
+
+      color: #f4fbff;
     }
+
+
+    .stat-value.green {
+      color: #59ff9b;
+    }
+
+
+    .stat-value.blue {
+      color: #70d5ff;
+    }
+
 
     .stat-label {
+      position: relative;
+      z-index: 2;
+
       margin-top: 5px;
+
       font-size: 8px;
-      color: rgba(255,255,255,.48);
+
+      font-weight: 900;
+
       letter-spacing: 1px;
+
+      color: #8ea5b9;
+
       text-transform: uppercase;
-      font-weight: 700;
     }
 
-    /* ---------- COMMUNITY CARD ---------- */
+
+    /* =========================
+       COMMUNITY DESCRIPTION
+    ========================= */
 
     .community {
       text-align: center;
-      padding: 5px 8px 0;
+
+      padding: 2px 8px 0;
     }
+
 
     .community h2 {
       font-family: "Bebas Neue", sans-serif;
-      font-size: 25px;
-      letter-spacing: 1.4px;
-      margin-bottom: 3px;
+
+      font-size: 27px;
+
+      letter-spacing: 1.7px;
+
+      color: #ffffff;
     }
+
+
+    .community h2 span {
+      color: #61cfff;
+    }
+
 
     .community p {
+      max-width: 340px;
+
+      margin: 4px auto 0;
+
       font-size: 10px;
-      line-height: 1.45;
-      color: rgba(255,255,255,.52);
-      max-width: 320px;
-      margin: auto;
+
+      line-height: 1.55;
+
+      font-weight: 600;
+
+      color: rgba(255,255,255,.58);
     }
 
-    /* ---------- CTA ---------- */
 
-    .cta-wrap {
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta-section {
       text-align: center;
-      margin-top: 9px;
+
+      margin-top: 8px;
     }
+
 
     .cta {
-      width: 92%;
-      min-height: 55px;
-      border: 0;
-      border-radius: 14px;
+      width: 94%;
+
+      min-height: 57px;
+
       position: relative;
+
       overflow: hidden;
-      cursor: pointer;
-      text-decoration: none;
 
       display: inline-flex;
-      justify-content: center;
+
       align-items: center;
-      gap: 11px;
 
-      background: linear-gradient(135deg, #ff7138, #ff431b);
+      justify-content: center;
+
+      gap: 10px;
+
+      border-radius: 15px;
+
+      text-decoration: none;
+
+      color: #ffffff;
+
+      background:
+        linear-gradient(
+          135deg,
+          #168bd1 0%,
+          #1675c5 45%,
+          #14a96c 100%
+        );
+
+      border: 1px solid rgba(255,255,255,.14);
+
       box-shadow:
-        0 10px 32px rgba(255, 72, 25, .22),
-        inset 0 1px rgba(255,255,255,.3);
+        0 12px 34px rgba(18,135,210,.24),
+        0 5px 22px rgba(10,160,100,.12),
+        inset 0 1px rgba(255,255,255,.28);
 
-      color: white;
-      font-size: 13px;
+      font-size: 12px;
+
       font-weight: 900;
-      letter-spacing: 1.1px;
+
+      letter-spacing: 1.2px;
+
       text-transform: uppercase;
 
-      transition: transform .2s ease, box-shadow .2s ease;
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
     }
+
 
     .cta:hover {
       transform: translateY(-2px);
+
       box-shadow:
-        0 14px 38px rgba(255, 72, 25, .32),
-        inset 0 1px rgba(255,255,255,.35);
+        0 17px 40px rgba(18,135,210,.32),
+        0 7px 25px rgba(10,160,100,.18),
+        inset 0 1px rgba(255,255,255,.3);
     }
+
 
     .cta:active {
       transform: scale(.98);
     }
 
+
+    /* Moving light over button */
+
     .cta::before {
       content: "";
+
       position: absolute;
+
       top: 0;
       left: -80%;
+
       width: 55%;
       height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.25),
-        transparent
-      );
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,.24),
+          transparent
+        );
+
       transform: skewX(-20deg);
-      animation: shine 3.4s infinite;
+
+      animation: buttonShine 3.5s infinite;
     }
 
-    @keyframes shine {
+
+    @keyframes buttonShine {
+
       0% {
         left: -80%;
       }
-      45%, 100% {
+
+      45%,
+      100% {
         left: 130%;
       }
+
     }
+
 
     .telegram-icon {
-      width: 21px;
-      height: 21px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.16);
+      position: relative;
+      z-index: 2;
+
+      width: 24px;
+      height: 24px;
+
       display: flex;
-      justify-content: center;
       align-items: center;
-      font-size: 11px;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.15);
+
+      font-size: 12px;
     }
 
-    .micro-copy {
+
+    .cta-text {
+      position: relative;
+      z-index: 2;
+    }
+
+
+    .cta-subtext {
       margin-top: 6px;
+
       font-size: 8px;
-      color: rgba(255,255,255,.3);
-      letter-spacing: .7px;
-    }
 
-    /* ---------- FOOTER ---------- */
+      font-weight: 700;
 
-    .footer {
-      text-align: center;
-      padding-bottom: 2px;
-      color: rgba(255,255,255,.22);
-      font-size: 7px;
-      letter-spacing: 1px;
+      letter-spacing: .8px;
+
+      color: rgba(255,255,255,.34);
+
       text-transform: uppercase;
     }
 
-    /* ---------- ANIMATIONS ---------- */
 
-    @keyframes fadeDown {
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+      text-align: center;
+
+      padding-bottom: 1px;
+
+      font-size: 7px;
+
+      font-weight: 800;
+
+      letter-spacing: 1.2px;
+
+      color: rgba(255,255,255,.25);
+
+      text-transform: uppercase;
+    }
+
+
+    /* =========================
+       ANIMATION
+    ========================= */
+
+    @keyframes fadeTop {
+
       from {
         opacity: 0;
         transform: translateY(-12px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
+
     }
 
-    /* ---------- SMALL PHONES ---------- */
+
+    /* =========================
+       SMALL HEIGHT PHONES
+    ========================= */
 
     @media (max-height: 680px) {
+
       .page {
-        padding: 8px 12px;
+        padding: 7px 11px;
       }
 
       .container {
-        padding: 4px 2px;
+        padding: 3px 2px;
       }
 
       .logo-area {
-        width: 118px;
-        height: 118px;
+        width: 115px;
+        height: 115px;
       }
 
       .logo {
-        width: 85px;
-        height: 85px;
+        width: 82px;
+        height: 82px;
       }
 
       .flame {
         transform: scale(.78);
-        top: 12px;
-        left: 21px;
+        top: 9px;
+        left: 20px;
       }
 
       .title h1 {
-        font-size: 47px;
+        font-size: 48px;
       }
 
       .subtitle {
         margin-top: 4px;
       }
 
-      .live-strip {
+      .live-bar {
         margin-top: 7px;
       }
 
@@ -557,120 +928,203 @@
         margin: 7px 0;
       }
 
-      .stat {
-        min-height: 60px;
+      .stat-card {
+        min-height: 62px;
       }
 
-      .community {
-        padding-top: 0;
-      }
-
-      .community h2 {
+      .stat-value {
         font-size: 22px;
       }
 
-      .cta {
-        min-height: 50px;
+      .community h2 {
+        font-size: 23px;
       }
+
+      .cta {
+        min-height: 51px;
+      }
+
     }
 
-    /* ---------- TABLET / DESKTOP ---------- */
+
+    /* =========================
+       LARGER SCREENS
+    ========================= */
 
     @media (min-width: 600px) {
+
       .page {
         padding: 20px;
       }
 
       .container {
-        max-height: 860px;
+        max-height: 850px;
       }
+
     }
+
   </style>
 </head>
+
 
 <body>
 
   <main class="page">
 
-    <div class="grid"></div>
-    <div class="orb one"></div>
-    <div class="orb two"></div>
+    <!-- BACKGROUND -->
+    <div class="background-grid"></div>
+
+    <div class="blue-glow"></div>
+    <div class="green-glow"></div>
+    <div class="red-glow"></div>
+
 
     <section class="container">
 
-      <!-- TOP -->
+
+      <!-- =====================
+           TOP SECTION
+      ====================== -->
+
       <div class="top">
 
-        <div class="brand">
-          <span class="live-dot"></span>
-          <span>Sarkar Bhai • Since 2015</span>
+        <!-- BRAND -->
+        <div class="brand-pill">
+
+          <span class="status-dot"></span>
+
+          <span>
+            Sarkar Bhai • Since 2015
+          </span>
+
         </div>
+
 
         <!-- LOGO -->
         <div class="logo-area">
+
           <div class="flame"></div>
 
-          <!-- Keep logo.png in the same folder as index.html -->
+          <!-- Keep logo.png in same folder -->
           <img
             src="logo.png"
-            alt="Sarkar Bhai Logo"
+            alt="Sarkar Bhai"
             class="logo"
-          />
+          >
+
         </div>
 
+
+        <!-- TITLE -->
         <div class="title">
-          <h1>SARKAR <em>BHAI</em></h1>
+
+          <h1>
+            SARKAR
+            <span class="accent">BHAI</span>
+          </h1>
+
           <div class="subtitle">
             Cricket • Football • Trading Community
           </div>
+
         </div>
 
-        <!-- LIVE ELEMENT -->
-        <div class="live-strip">
-          <span class="live-dot"></span>
-          <strong>Community Active</strong>
-          <span>• Live updates & analysis</span>
+
+        <!-- LIVE STATUS -->
+        <div class="live-bar">
+
+          <span class="status-dot"></span>
+
+          <span class="live-text">
+            Community Active
+          </span>
+
+          <span class="live-info">
+            • Live Updates & Analysis
+          </span>
+
         </div>
 
       </div>
 
 
-      <!-- MIDDLE -->
+      <!-- =====================
+           MIDDLE SECTION
+      ====================== -->
+
       <div>
+
+        <!-- HIGHLIGHTS -->
 
         <div class="highlights">
 
-          <div class="stat">
-            <div class="stat-value">2015+</div>
-            <div class="stat-label">Experience</div>
+
+          <div class="stat-card">
+
+            <div class="stat-value blue">
+              2015+
+            </div>
+
+            <div class="stat-label">
+              Experience
+            </div>
+
           </div>
 
-          <div class="stat">
-            <div class="stat-value">YOUR %</div>
-            <div class="stat-label">Accuracy</div>
+
+          <div class="stat-card">
+
+            <div class="stat-value green">
+              High
+            </div>
+
+            <div class="stat-label">
+              Accuracy Rate
+            </div>
+
           </div>
 
-          <div class="stat">
-            <div class="stat-value">YOUR</div>
-            <div class="stat-label">Trust Score</div>
+
+          <div class="stat-card">
+
+            <div class="stat-value">
+              4.9 ✨
+            </div>
+
+            <div class="stat-label">
+              Trust Score
+            </div>
+
           </div>
 
         </div>
 
+
+        <!-- COMMUNITY -->
+
         <div class="community">
-          <h2>INSIDE THE COMMUNITY</h2>
+
+          <h2>
+            INSIDE THE
+            <span>COMMUNITY</span>
+          </h2>
 
           <p>
-            Cricket & football focused community featuring
-            match insights, market observations and regular updates.
+            A focused cricket & football community featuring
+            match insights, market observations and regular
+            updates in one place.
           </p>
+
         </div>
 
       </div>
 
 
-      <!-- CTA -->
-      <div class="cta-wrap">
+      <!-- =====================
+           CTA
+      ====================== -->
+
+      <div class="cta-section">
 
         <a
           href="https://t.me/+aH48tgNQiXEwOWRk"
@@ -678,21 +1132,31 @@
           rel="noopener noreferrer"
           class="cta"
         >
-          <span class="telegram-icon">➤</span>
-          JOIN THE TELEGRAM COMMUNITY
+
+          <span class="telegram-icon">
+            ➤
+          </span>
+
+          <span class="cta-text">
+            ENTER THE COMMUNITY
+          </span>
+
         </a>
 
-        <div class="micro-copy">
-          Tap above to enter the community
+
+        <div class="cta-subtext">
+          Tap above • Connect on Telegram
         </div>
 
       </div>
 
 
       <!-- FOOTER -->
+
       <div class="footer">
         SARKAR BHAI (2015) • CRICKET & FOOTBALL COMMUNITY
       </div>
+
 
     </section>
 
