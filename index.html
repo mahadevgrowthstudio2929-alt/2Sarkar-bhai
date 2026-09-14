@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  />
+
+  <title>Sarkar Bhai (2015) | Cricket & Football Community</title>
+
+  <!-- Premium bold / cinematic fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 50% 25%, rgba(0, 115, 255, 0.15), transparent 32%),
+        radial-gradient(circle at 50% 100%, rgba(255, 80, 0, 0.08), transparent 35%),
+        #050608;
+
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---------- BACKGROUND ---------- */
+
+    .page {
+      width: 100%;
+      height: 100dvh;
+      min-height: 560px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px;
+    }
+
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 45px 45px;
+      mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+      pointer-events: none;
+    }
+
+    .orb {
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(0, 119, 255, 0.09);
+      filter: blur(65px);
+      animation: orbMove 7s ease-in-out infinite alternate;
+    }
+
+    .orb.one {
+      top: -100px;
+      left: -100px;
+    }
+
+    .orb.two {
+      bottom: -120px;
+      right: -100px;
+      background: rgba(255, 65, 0, 0.08);
+      animation-delay: 2s;
+    }
+
+    @keyframes orbMove {
+      from {
+        transform: translate(0, 0) scale(1);
+      }
+      to {
+        transform: translate(35px, 25px) scale(1.12);
+      }
+    }
+
+    /* ---------- MAIN CARD ---------- */
+
+    .container {
+      width: 100%;
+      max-width: 440px;
+      height: 100%;
+      max-height: 820px;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 12px 4px;
+    }
+
+    /* ---------- TOP ---------- */
+
+    .top {
+      text-align: center;
+      animation: fadeDown .7s ease both;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 14px;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.035);
+      border-radius: 999px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 30px rgba(0,0,0,.25);
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #31ff77;
+      box-shadow: 0 0 12px rgba(49,255,119,.9);
+      animation: pulse 1.2s infinite;
+    }
+
+    .brand span {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.82);
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: .35;
+        transform: scale(.7);
+      }
+    }
+
+    /* ---------- LOGO ---------- */
+
+    .logo-area {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 5px auto 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo-area::before {
+      content: "";
+      position: absolute;
+      width: 105px;
+      height: 105px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(255, 104, 20, .55),
+        rgba(255, 58, 0, .16) 42%,
+        transparent 70%
+      );
+      filter: blur(14px);
+      animation: flameGlow 1.7s ease-in-out infinite alternate;
+    }
+
+    /* Flame-like glow behind logo */
+    .flame {
+      position: absolute;
+      width: 76px;
+      height: 90px;
+      top: 19px;
+      left: 37px;
+      background: linear-gradient(
+        160deg,
+        transparent 20%,
+        rgba(255, 140, 45, .18) 35%,
+        rgba(255, 60, 10, .5) 58%,
+        transparent 75%
+      );
+      filter: blur(13px);
+      clip-path: polygon(
+        50% 0%,
+        65% 24%,
+        94% 39%,
+        70% 54%,
+        82% 78%,
+        50% 100%,
+        28% 78%,
+        34% 53%,
+        5% 42%,
+        36% 23%
+      );
+      animation: flame 1.3s ease-in-out infinite alternate;
+    }
+
+    @keyframes flame {
+      from {
+        transform: scale(.92) rotate(-3deg);
+        opacity: .65;
+      }
+      to {
+        transform: scale(1.08) rotate(3deg);
+        opacity: 1;
+      }
+    }
+
+    @keyframes flameGlow {
+      from {
+        transform: scale(.92);
+        opacity: .65;
+      }
+      to {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    .logo {
+      width: 108px;
+      height: 108px;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 18px rgba(255, 87, 25, .25));
+    }
+
+    /* ---------- TITLE ---------- */
+
+    .title {
+      margin-top: -3px;
+    }
+
+    .title h1 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(42px, 13vw, 62px);
+      line-height: .86;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #d9e5f5 48%,
+        #7f8ca1 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 12px 35px rgba(0,0,0,.4);
+    }
+
+    .title h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, #ff7138, #ffb06d);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      margin-top: 7px;
+      color: rgba(255,255,255,.58);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    /* ---------- LIVE STRIP ---------- */
+
+    .live-strip {
+      margin: 11px auto 0;
+      width: 92%;
+      min-height: 34px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border: 1px solid rgba(49,255,119,.14);
+      border-radius: 10px;
+      background: rgba(49,255,119,.035);
+      box-shadow: inset 0 0 22px rgba(49,255,119,.025);
+    }
+
+    .live-strip strong {
+      color: #55ff8d;
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .live-strip span {
+      color: rgba(255,255,255,.55);
+      font-size: 10px;
+    }
+
+    /* ---------- HIGHLIGHTS ---------- */
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+      margin: 10px 0;
+    }
+
+    .stat {
+      min-height: 70px;
+      padding: 10px 5px;
+      border-radius: 13px;
+      border: 1px solid rgba(255,255,255,.085);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.055),
+          rgba(255,255,255,.018)
+        );
+      backdrop-filter: blur(12px);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat::after {
+      content: "";
+      position: absolute;
+      width: 55px;
+      height: 55px;
+      right: -30px;
+      top: -30px;
+      border-radius: 50%;
+      background: rgba(255,110,45,.13);
+      filter: blur(10px);
+    }
+
+    .stat-value {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 25px;
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+
+    .stat-label {
+      margin-top: 5px;
+      font-size: 8px;
+      color: rgba(255,255,255,.48);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* ---------- COMMUNITY CARD ---------- */
+
+    .community {
+      text-align: center;
+      padding: 5px 8px 0;
+    }
+
+    .community h2 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 25px;
+      letter-spacing: 1.4px;
+      margin-bottom: 3px;
+    }
+
+    .community p {
+      font-size: 10px;
+      line-height: 1.45;
+      color: rgba(255,255,255,.52);
+      max-width: 320px;
+      margin: auto;
+    }
+
+    /* ---------- CTA ---------- */
+
+    .cta-wrap {
+      text-align: center;
+      margin-top: 9px;
+    }
+
+    .cta {
+      width: 92%;
+      min-height: 55px;
+      border: 0;
+      border-radius: 14px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 11px;
+
+      background: linear-gradient(135deg, #ff7138, #ff431b);
+      box-shadow:
+        0 10px 32px rgba(255, 72, 25, .22),
+        inset 0 1px rgba(255,255,255,.3);
+
+      color: white;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 14px 38px rgba(255, 72, 25, .32),
+        inset 0 1px rgba(255,255,255,.35);
+    }
+
+    .cta:active {
+      transform: scale(.98);
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -80%;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+      );
+      transform: skewX(-20deg);
+      animation: shine 3.4s infinite;
+    }
+
+    @keyframes shine {
+      0% {
+        left: -80%;
+      }
+      45%, 100% {
+        left: 130%;
+      }
+    }
+
+    .telegram-icon {
+      width: 21px;
+      height: 21px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.16);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 11px;
+    }
+
+    .micro-copy {
+      margin-top: 6px;
+      font-size: 8px;
+      color: rgba(255,255,255,.3);
+      letter-spacing: .7px;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    .footer {
+      text-align: center;
+      padding-bottom: 2px;
+      color: rgba(255,255,255,.22);
+      font-size: 7px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ---------- SMALL PHONES ---------- */
+
+    @media (max-height: 680px) {
+      .page {
+        padding: 8px 12px;
+      }
+
+      .container {
+        padding: 4px 2px;
+      }
+
+      .logo-area {
+        width: 118px;
+        height: 118px;
+      }
+
+      .logo {
+        width: 85px;
+        height: 85px;
+      }
+
+      .flame {
+        transform: scale(.78);
+        top: 12px;
+        left: 21px;
+      }
+
+      .title h1 {
+        font-size: 47px;
+      }
+
+      .subtitle {
+        margin-top: 4px;
+      }
+
+      .live-strip {
+        margin-top: 7px;
+      }
+
+      .highlights {
+        margin: 7px 0;
+      }
+
+      .stat {
+        min-height: 60px;
+      }
+
+      .community {
+        padding-top: 0;
+      }
+
+      .community h2 {
+        font-size: 22px;
+      }
+
+      .cta {
+        min-height: 50px;
+      }
+    }
+
+    /* ---------- TABLET / DESKTOP ---------- */
+
+    @media (min-width: 600px) {
+      .page {
+        padding: 20px;
+      }
+
+      .container {
+        max-height: 860px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <div class="grid"></div>
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+
+    <section class="container">
+
+      <!-- TOP -->
+      <div class="top">
+
+        <div class="brand">
+          <span class="live-dot"></span>
+          <span>Sarkar Bhai • Since 2015</span>
+        </div>
+
+        <!-- LOGO -->
+        <div class="logo-area">
+          <div class="flame"></div>
+
+          <!-- Keep logo.png in the same folder as index.html -->
+          <img
+            src="logo.png"
+            alt="Sarkar Bhai Logo"
+            class="logo"
+          />
+        </div>
+
+        <div class="title">
+          <h1>SARKAR <em>BHAI</em></h1>
+          <div class="subtitle">
+            Cricket • Football • Trading Community
+          </div>
+        </div>
+
+        <!-- LIVE ELEMENT -->
+        <div class="live-strip">
+          <span class="live-dot"></span>
+          <strong>Community Active</strong>
+          <span>• Live updates & analysis</span>
+        </div>
+
+      </div>
+
+
+      <!-- MIDDLE -->
+      <div>
+
+        <div class="highlights">
+
+          <div class="stat">
+            <div class="stat-value">2015+</div>
+            <div class="stat-label">Experience</div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-value">YOUR %</div>
+            <div class="stat-label">Accuracy</div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-value">YOUR</div>
+            <div class="stat-label">Trust Score</div>
+          </div>
+
+        </div>
+
+        <div class="community">
+          <h2>INSIDE THE COMMUNITY</h2>
+
+          <p>
+            Cricket & football focused community featuring
+            match insights, market observations and regular updates.
+          </p>
+        </div>
+
+      </div>
+
+
+      <!-- CTA -->
+      <div class="cta-wrap">
+
+        <a
+          href="https://t.me/+aH48tgNQiXEwOWRk"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta"
+        >
+          <span class="telegram-icon">➤</span>
+          JOIN THE TELEGRAM COMMUNITY
+        </a>
+
+        <div class="micro-copy">
+          Tap above to enter the community
+        </div>
+
+      </div>
+
+
+      <!-- FOOTER -->
+      <div class="footer">
+        SARKAR BHAI (2015) • CRICKET & FOOTBALL COMMUNITY
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
